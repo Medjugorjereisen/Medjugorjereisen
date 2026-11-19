@@ -1,0 +1,21 @@
+{
+  "hinweis": "Alle Preise pro Person. Ich buche alles für Sie und melde mich innerhalb von zwei Tagen.",
+  "termine": [
+    {
+      "id": "2027",
+      "datum": "Termine 2027",
+      "badge": "in Vorbereitung",
+      "titel": "Flugreisen ab Stuttgart nach Mostar",
+      "punkte": [
+        "Kleine Gruppe, persönlich begleitet",
+        "Ruhige, deutschsprachige Pension in Medjugorje",
+        "Nur ca. 30 Minuten Transfer von Mostar"
+      ],
+      "preis": "",
+      "preis_info": "Termine und Preise folgen in Kürze",
+      "knopf": "Vormerken lassen",
+      "bild": "blick-tal.jpg",
+      "bild_alt": "Blick vom Kreuzberg über das Tal von Medjugorje"
+    }
+  ]
+}

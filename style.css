@@ -1,0 +1,261 @@
+/* Medjugorje Reisen – gemeinsames Stylesheet */
+
+/* Schriften (lokal eingebunden, keine Verbindung zu Google) */
+@font-face{font-family:"Lora";font-style:normal;font-weight:500;font-display:swap;src:url(schriften/lora-latin-500-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lora";font-style:normal;font-weight:500;font-display:swap;src:url(schriften/lora-latin-ext-500-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lora";font-style:normal;font-weight:600;font-display:swap;src:url(schriften/lora-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lora";font-style:normal;font-weight:600;font-display:swap;src:url(schriften/lora-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Lora";font-style:italic;font-weight:500;font-display:swap;src:url(schriften/lora-latin-500-italic.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Lora";font-style:italic;font-weight:500;font-display:swap;src:url(schriften/lora-latin-ext-500-italic.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url(schriften/source-sans-3-latin-400-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:400;font-display:swap;src:url(schriften/source-sans-3-latin-ext-400-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url(schriften/source-sans-3-latin-600-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Source Sans 3";font-style:normal;font-weight:600;font-display:swap;src:url(schriften/source-sans-3-latin-ext-600-normal.woff2) format("woff2");unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+
+:root{
+  --blau-dunkel:#1C3557;
+  --blau:#24456E;
+  --blau-hell:#E8EEF6;
+  --stein:#F7F4EE;
+  --sand:#EFE8DA;
+  --sand-hell:#F2EBDC;
+  --gold:#B8913F;
+  --gold-text:#8A6A28;
+  --gold-hell:#E2C98F;
+  --text:#1E2430;
+  --text-2:#3A404C;
+  --text-3:#5A5F6B;
+  --linie:#E4DDD0;
+  --weiss:#FFFFFF;
+  --schatten:0 1px 2px rgba(30,36,48,.06),0 12px 32px rgba(30,36,48,.06);
+  --serif:"Lora",Georgia,"Times New Roman",serif;
+  --sans:"Source Sans 3",system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--stein);color:var(--text);font-family:var(--sans);font-size:18px;line-height:1.6;-webkit-text-size-adjust:100%}
+img{max-width:100%;display:block}
+a{color:var(--blau)}
+a:hover{color:#16304F}
+h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.2;margin:0}
+p{margin:0}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--weiss);padding:10px 16px;z-index:100}
+.skip:focus{left:12px;top:12px}
+
+.wrap{max-width:1200px;margin:0 auto;padding-left:24px;padding-right:24px}
+.eyebrow{font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold-text);font-weight:600}
+.eyebrow.hell{color:var(--gold-hell)}
+.muted{color:var(--text-3)}
+.stack{display:flex;flex-direction:column;gap:16px}
+.section{padding-top:88px;padding-bottom:88px}
+.section-title{font-size:38px}
+
+/* Kopfzeile */
+.site-header{background:var(--weiss);border-bottom:1px solid var(--linie)}
+.site-header .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-top:16px;padding-bottom:16px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--text)}
+.brand-name{display:block;font-family:var(--serif);font-size:22px;font-weight:600;line-height:1.15}
+.brand-sub{display:block;font-size:14px;color:var(--text-3);line-height:1.2}
+.nav{display:flex;flex-wrap:wrap;align-items:center;gap:4px 26px;font-size:17px;font-weight:600}
+.nav a{text-decoration:none;color:var(--text);padding:6px 0}
+.nav a[aria-current="page"]{color:var(--blau);border-bottom:2px solid var(--gold)}
+.nav a.btn{padding:11px 22px;color:var(--weiss);border-bottom:0}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:13px 26px;border-radius:999px;font-weight:600;font-size:18px;text-decoration:none;background:var(--blau);color:var(--weiss);border:1.5px solid var(--blau);cursor:pointer;font-family:inherit;line-height:1.2}
+.btn:hover{background:#16304F;color:var(--weiss)}
+.btn-gold{background:var(--gold-hell);border-color:var(--gold-hell);color:var(--blau-dunkel)}
+.btn-gold:hover{background:#d8b96f;color:var(--blau-dunkel)}
+.btn-ghost{background:transparent;border-color:#7C8FAB;color:var(--stein)}
+.btn-ghost:hover{background:rgba(255,255,255,.08);color:var(--weiss)}
+.btn-klein{min-height:44px;padding:10px 20px;font-size:16px}
+
+/* Einstieg */
+.hero{background:var(--blau-dunkel);color:var(--stein)}
+.hero .wrap{display:flex;flex-wrap:wrap;gap:48px;align-items:center;padding-top:80px;padding-bottom:80px}
+.hero-text{flex:1 1 460px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.hero h1{font-size:52px;line-height:1.12}
+.hero-lead{font-size:20px;color:#D9DEE6;max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:6px}
+.hero-call{font-size:17px;color:#D9DEE6}
+.hero-call a{color:var(--weiss);font-weight:600}
+.hero-img{flex:1 1 400px;min-width:0;width:100%;height:460px;object-fit:cover;object-position:44% 50%;border-radius:20px;box-shadow:0 16px 40px rgba(0,0,0,.25)}
+
+.page-hero{position:relative;background:var(--blau-dunkel);color:var(--stein);overflow:hidden}
+.page-hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.3}
+.page-hero .wrap{position:relative;padding-top:104px;padding-bottom:92px;display:flex;flex-direction:column;gap:20px}
+.page-hero h1{font-size:56px;line-height:1.1;max-width:820px}
+.page-hero p.lead{font-size:20px;color:#E3E8EF;max-width:680px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+.chips a{text-decoration:none;color:var(--stein);border:1.5px solid #7C8FAB;border-radius:999px;padding:9px 18px;font-size:16px;font-weight:600}
+.chips a:hover{background:rgba(255,255,255,.08);color:var(--weiss)}
+
+/* Karten */
+.card{background:var(--weiss);border-radius:20px;box-shadow:var(--schatten)}
+.grid{display:grid;gap:24px}
+.grid-3{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.grid-5{grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:20px}
+.grid-4{grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px}
+
+/* Botschaft */
+.botschaft-block{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.botschaft-block .info{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.botschaft-block .info img{margin-top:14px;width:100%;max-width:340px;height:420px;object-fit:cover;object-position:50% 15%;border-radius:20px}
+.botschaft-block figure{flex:2 1 560px;min-width:0;margin:0;padding:44px 48px}
+blockquote.zitat{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:23px;line-height:1.6;color:var(--text)}
+.zitat-fuss{margin-top:22px;display:flex;flex-wrap:wrap;gap:10px 24px;justify-content:space-between;font-size:16px;color:var(--text-3)}
+
+/* Reisen */
+.reisen-kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:16px;margin-bottom:36px}
+.reise{overflow:hidden;display:flex;flex-direction:column}
+.reise-kopf{background:var(--blau);color:var(--weiss);padding:20px 26px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+.reise-datum{font-family:var(--serif);font-size:24px;font-weight:600}
+.badge{font-size:14px;font-weight:600;background:var(--gold-hell);color:var(--blau-dunkel);padding:4px 12px;border-radius:999px;white-space:nowrap}
+.reise img{width:100%;height:190px;object-fit:cover}
+.reise-inhalt{padding:24px 26px 26px;display:flex;flex-direction:column;gap:12px;flex-grow:1}
+.reise-inhalt h3{font-family:var(--sans);font-size:21px}
+.reise-inhalt ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:6px;color:var(--text-2);font-size:17px}
+.reise-inhalt li{padding-left:22px;position:relative}
+.reise-inhalt li::before{content:"";position:absolute;left:2px;top:.62em;width:8px;height:8px;border-radius:999px;background:var(--gold)}
+.reise-fuss{margin-top:auto;padding-top:16px;border-top:1px solid #ECE6DA;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.preis{font-size:28px;font-weight:600;color:var(--blau-dunkel)}
+.preis-info{color:var(--text-3);font-size:15px}
+.partner{background:var(--sand);border-radius:20px;padding:30px 28px;display:flex;flex-direction:column;gap:14px}
+.partner h3{font-size:24px}
+.hinweis-box{background:var(--blau-hell);border-radius:16px;padding:20px 24px;color:var(--text-2)}
+
+/* Ablauf */
+.band-weiss{background:var(--weiss);border-top:1px solid var(--linie);border-bottom:1px solid var(--linie)}
+.schritte{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.schritt{display:flex;flex-direction:column;gap:10px;align-items:center;text-align:center}
+.schritt .nr{width:56px;height:56px;border-radius:999px;background:var(--sand-hell);color:var(--gold-text);font-family:var(--serif);font-size:26px;font-weight:600;display:flex;align-items:center;justify-content:center}
+.schritt h3{font-family:var(--sans);font-size:21px}
+.schritt p{color:var(--text-3);max-width:300px}
+.foto-gross{margin:16px 0 0;display:flex;flex-direction:column;gap:12px}
+.foto-gross img{width:100%;height:460px;object-fit:cover;object-position:50% 60%;border-radius:20px}
+.foto-gross figcaption{font-size:16px;color:var(--text-3);text-align:center}
+
+/* Orte */
+.ort{margin:0;display:flex;flex-direction:column;gap:12px}
+.ort img{width:100%;height:280px;object-fit:cover;border-radius:16px}
+.ort figcaption{display:flex;flex-direction:column;gap:2px}
+.ort .titel{font-weight:600;font-size:19px}
+.ort .text{color:var(--text-3);font-size:16px}
+
+/* Über mich */
+.ueber{display:flex;flex-wrap:wrap;gap:56px;align-items:center}
+.ueber img{flex:1 1 320px;min-width:0;width:100%;max-width:440px;height:540px;object-fit:cover;object-position:50% 22%;border-radius:20px;box-shadow:var(--schatten)}
+.ueber .text{flex:1 1 480px;min-width:0;display:flex;flex-direction:column;gap:18px;color:var(--text-2)}
+
+/* Banner */
+.banner{background:var(--blau);color:var(--stein);border-radius:24px;padding:48px 56px;display:flex;flex-wrap:wrap;gap:28px 32px;align-items:center;justify-content:space-between}
+.banner img{width:150px;height:190px;object-fit:cover;object-position:50% 20%;border-radius:16px;flex-shrink:0}
+.banner .text{flex:1 1 420px;min-width:0;display:flex;flex-direction:column;gap:10px}
+.banner h2{font-size:32px}
+.banner p{color:#D9DEE6}
+
+/* Fußzeile */
+.site-footer{background:var(--blau-dunkel);color:#D9DEE6;font-size:16px;margin-top:0}
+.site-footer .spalten{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:36px;padding-top:60px;padding-bottom:32px}
+.site-footer .spalten > div{display:flex;flex-direction:column;gap:6px}
+.site-footer strong{color:var(--weiss);font-weight:600}
+.site-footer .fname{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--weiss)}
+.site-footer a{color:#D9DEE6}
+.site-footer a:hover{color:var(--weiss)}
+.site-footer .unten{border-top:1px solid #34507A;padding-top:22px;padding-bottom:28px;font-size:14px;color:#AEBBCD}
+
+/* Formular */
+.form-layout{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start;padding-top:64px;padding-bottom:96px}
+.form-layout aside{flex:1 1 320px;min-width:0;display:flex;flex-direction:column;gap:20px}
+.form-layout aside h1{font-size:44px;line-height:1.15}
+.kontakt-box{padding:26px 28px;display:flex;flex-direction:column;gap:6px;color:var(--text-2)}
+.form-karte{flex:2 1 560px;min-width:0;padding:44px 48px}
+form .feld{display:flex;flex-direction:column;gap:8px}
+form label,form legend{font-weight:600}
+form input[type=text],form input[type=email],form input[type=tel],form input[type=number],form select,form textarea{font:inherit;padding:12px 14px;border:1.5px solid #CFC6B5;border-radius:12px;background:var(--weiss);min-height:50px;width:100%;color:var(--text)}
+form textarea{resize:vertical;min-height:140px}
+form input:focus,form select:focus,form textarea:focus{border-color:var(--blau);outline:none;box-shadow:0 0 0 3px rgba(36,69,110,.18)}
+.form-stack{display:flex;flex-direction:column;gap:24px}
+.zwei{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+fieldset{border:0;margin:0;padding:0}
+.radios{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.radios label{display:inline-flex;align-items:center;gap:10px;border:1.5px solid #CFC6B5;border-radius:12px;padding:10px 16px;min-height:50px;font-weight:400;cursor:pointer;background:var(--weiss)}
+.radios input{width:20px;height:20px;accent-color:var(--blau)}
+.check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-weight:400 !important;color:var(--text-2)}
+.check input{width:22px;height:22px;margin-top:2px;accent-color:var(--blau);flex-shrink:0}
+.honig{position:absolute;left:-9999px}
+
+/* Medjugorje-Seite */
+.fakten{margin:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}
+.fakten dt{font-size:14px;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-text);font-weight:600}
+.fakten dd{margin:2px 0 0}
+.zeitleiste{margin:0 0 0 10px;padding:0;list-style:none;border-left:2px solid #D9CDB3}
+.zeitleiste li{position:relative;padding:0 0 30px 34px}
+.zeitleiste li:last-child{padding-bottom:0}
+.zeitleiste li::before{content:"";position:absolute;left:-9px;top:6px;width:16px;height:16px;border-radius:999px;background:var(--gold);border:3px solid var(--stein)}
+.zeitleiste .wann{font-weight:600;color:var(--blau)}
+.zeitleiste p.was{margin-top:4px;color:var(--text-2)}
+.thema{border-radius:18px;padding:28px 24px;display:flex;flex-direction:column;gap:8px;background:var(--sand-hell)}
+.thema h3{font-size:25px}
+.thema p{font-size:16px;color:var(--text-2)}
+.thema.dunkel{background:var(--blau-dunkel);color:var(--stein)}
+.thema.dunkel p{color:#D9DEE6}
+.kurz-botschaft{margin:0;background:var(--stein);border-radius:18px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.kurz-botschaft figcaption{font-weight:600;color:var(--blau);font-size:16px}
+.kurz-botschaft blockquote{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:18px}
+.kirche{display:flex;flex-wrap:wrap;gap:48px;align-items:center}
+.kirche img{flex:1 1 280px;min-width:0;width:100%;max-width:380px;height:460px;object-fit:cover;object-position:50% 15%;border-radius:20px}
+.kirche .text{flex:2 1 480px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.jahr-zeile{display:flex;gap:18px}
+.jahr-zeile .jahr{flex-shrink:0;width:64px;font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blau)}
+.jahr-zeile p{color:var(--text-2)}
+.station{background:var(--weiss);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:6px}
+.station .titel{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--blau)}
+.station p{font-size:16px;color:var(--text-2)}
+.band-sand{background:var(--sand)}
+
+/* Botschaften-Archiv */
+.archiv{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;padding-top:64px;padding-bottom:40px}
+.jahre{flex:1 1 260px;min-width:0;padding:28px 26px;display:flex;flex-direction:column;gap:18px}
+.jahre .gruppe{display:flex;flex-direction:column;gap:8px}
+.jahre .gruppe-titel{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-text);font-weight:600}
+.jahre .knoepfe{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
+.jahr-knopf{font:inherit;font-size:15px;padding:8px 0;border-radius:10px;min-height:44px;cursor:pointer;width:100%;background:var(--stein);color:var(--text);border:1.5px solid var(--linie)}
+.jahr-knopf[aria-pressed="true"]{background:var(--blau);color:var(--weiss);border-color:var(--blau);font-weight:600}
+.archiv-liste{flex:999 1 560px;min-width:0;display:flex;flex-direction:column;gap:22px}
+.archiv-liste .kopf{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 16px}
+.archiv-liste h2{font-size:40px;color:var(--blau-dunkel)}
+.monat{padding:32px 36px;display:flex;flex-direction:column;gap:14px}
+.monat .zeile{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:6px 20px}
+.monat h3{font-size:25px;color:var(--blau-dunkel)}
+.monat .wer{font-size:15px;color:var(--text-3)}
+.monat blockquote{margin:0;font-family:var(--serif);font-style:italic;font-weight:500;font-size:20px;line-height:1.65}
+.monat .fuss{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 20px;font-size:15px;color:var(--text-3)}
+.monat .fuss a{font-weight:600;font-size:16px}
+
+/* Textseiten (Impressum, Datenschutz) */
+.textseite{max-width:820px;padding-top:64px;padding-bottom:96px}
+.textseite h1{font-size:44px;margin-bottom:28px}
+.textseite h2{font-size:26px;margin:36px 0 10px}
+.textseite h3{font-family:var(--sans);font-size:19px;margin:22px 0 6px}
+.textseite p,.textseite li{color:var(--text-2)}
+.textseite p+p{margin-top:12px}
+
+@media (max-width:720px){
+  body{font-size:17px}
+  .hero h1{font-size:38px}
+  .page-hero h1{font-size:40px}
+  .section-title,.archiv-liste h2{font-size:30px}
+  .hero-img{height:300px}
+  .botschaft-block .info img{display:none}
+  .botschaft-block figure,.form-karte{padding:28px 24px}
+  .monat{padding:26px 22px}
+  blockquote.zitat{font-size:20px}
+  .banner{padding:32px 26px}
+  .foto-gross img{height:280px}
+  .ueber img{height:420px}
+  .section{padding-top:64px;padding-bottom:64px}
+}

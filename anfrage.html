@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Reise anfragen – Medjugorje Reisen</title>
+<meta name="description" content="Unverbindliche Anfrage für eine Pilgerreise nach Medjugorje mit Reiner Wettcke.">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="bilder/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="index.html"><svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8913F" stroke-width="1.8" aria-hidden="true"><path d="M17 3v28M9 11h16"></path><circle cx="17" cy="11" r="13" stroke-opacity="0.35"></circle></svg><span><span class="brand-name">Medjugorje Reisen</span><span class="brand-sub">Reiner Wettcke · Dobel</span></span></a>
+    <nav class="nav" aria-label="Hauptmenü"><a href="index.html#reisen">Reisen</a><a href="botschaften.html">Botschaften</a><a href="medjugorje.html">Medjugorje</a><a href="index.html#kinder-mariens">Kinder Mariens</a><a href="ueber-mich.html">Über mich</a><a class="btn" href="anfrage.html">Reise anfragen</a></nav>
+  </div>
+</header>
+<main id="inhalt">
+
+<div class="wrap form-layout">
+  <aside>
+    <p class="eyebrow">Reise anfragen</p>
+    <h1>Ich freue mich auf Ihre Anfrage</h1>
+    <p style="color:#3A404C">Füllen Sie das Formular aus. Ich melde mich innerhalb von zwei Tagen persönlich bei Ihnen. Die Anfrage ist unverbindlich und kostenlos.</p>
+    <div class="card kontakt-box">
+      <strong style="font-size:19px;color:#1E2430">Lieber telefonisch?</strong>
+      <span>Mobil <a href="tel:+4915233889960" style="font-weight:600">0152 33 88 99 60</a></span>
+      <span>Telefon <a href="tel:+4970839330898" style="font-weight:600">07083 933 0898</a></span>
+      <span>E-Mail <a href="mailto:maria@medjugorjereisen.de" style="font-weight:600">maria@medjugorjereisen.de</a></span>
+    </div>
+  </aside>
+  <section class="card form-karte" aria-label="Anfrageformular">
+    <form class="form-stack" action="https://formsubmit.co/maria@medjugorjereisen.de" method="POST">
+      <input type="hidden" name="_subject" value="Neue Reiseanfrage über medjugorjereisen.de">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_next" id="weiter" value="https://medjugorjereisen.de/danke.html">
+      <input type="hidden" name="_autoresponse" value="Vielen Dank für Ihre Anfrage! Ich melde mich innerhalb von zwei Tagen persönlich bei Ihnen. Herzliche Grüße, Reiner Wettcke – Medjugorje Reisen, Tel. 0152 33 88 99 60">
+      <input class="honig" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+      <div class="feld"><label for="reise">Welche Reise interessiert Sie?</label>
+        <select id="reise" name="Reise"><option value="Flugreisen ab Stuttgart nach Mostar · Termine 2027" data-id="2027">Flugreisen ab Stuttgart nach Mostar · Termine 2027</option><option value="Noch unentschlossen – bitte beraten Sie mich">Ich bin noch unentschlossen – bitte beraten Sie mich</option></select></div>
+
+      <div class="zwei">
+        <div class="feld"><label for="personen">Anzahl Personen</label>
+          <input id="personen" name="Personen" type="number" min="1" max="20" value="1" required></div>
+        <fieldset><legend>Zimmer</legend>
+          <div class="radios">
+            <label><input type="radio" name="Zimmer" value="Doppelzimmer" checked> Doppelzimmer</label>
+            <label><input type="radio" name="Zimmer" value="Einzelzimmer"> Einzelzimmer</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="zwei">
+        <div class="feld"><label for="name">Name *</label><input id="name" name="Name" type="text" autocomplete="name" required></div>
+        <div class="feld"><label for="tel">Telefon</label><input id="tel" name="Telefon" type="tel" autocomplete="tel"></div>
+      </div>
+
+      <div class="feld"><label for="mail">E-Mail *</label><input id="mail" name="email" type="email" autocomplete="email" required></div>
+
+      <label class="check"><input type="checkbox" name="Rückruf gewünscht" value="Ja" checked> <span>Bitte rufen Sie mich zurück</span></label>
+
+      <div class="feld"><label for="msg">Ihre Nachricht oder Fragen</label><textarea id="msg" name="Nachricht" rows="5"></textarea></div>
+
+      <label class="check"><input type="checkbox" name="Datenschutz" value="zugestimmt" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Beantwortung meiner Anfrage übermittelt und gespeichert werden. *</span></label>
+
+      <button class="btn" type="submit" style="align-self:flex-start;font-size:19px;min-height:56px;padding:15px 32px">Anfrage absenden</button>
+      <p class="muted" style="font-size:15px">* Pflichtfelder</p>
+    </form>
+  </section>
+</div>
+<script>
+(function(){
+  var w=document.getElementById('weiter');
+  if(w && location.protocol.indexOf('http')===0){ w.value=new URL('danke.html', location.href).href; }
+  var id=new URLSearchParams(location.search).get('reise');
+  if(id){ var s=document.getElementById('reise'); for(var i=0;i<s.options.length;i++){ if(s.options[i].getAttribute('data-id')===id){ s.selectedIndex=i; } } }
+})();
+</script>
+</main>
+<footer class="site-footer">
+  <div class="wrap spalten">
+    <div><span class="fname">Medjugorje Reisen</span><span>Reiner Wettcke</span><span>Höhenstraße 25</span><span>75335 Dobel</span></div>
+    <div><strong>Kontakt</strong><span>Telefon <a href="tel:+4970839330898">07083 933 0898</a></span><span>Mobil <a href="tel:+4915233889960">0152 33 88 99 60</a></span><a href="mailto:maria@medjugorjereisen.de">maria@medjugorjereisen.de</a></div>
+    <nav aria-label="Weitere Seiten" style="display:flex;flex-direction:column;gap:6px"><strong>Wichtige Seiten</strong><a href="anfrage.html">Reise anfragen</a><a href="botschaften.html">Botschaften-Archiv</a><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+  </div>
+  <div class="wrap unten">Alle Botschaften werden unter dem Vorbehalt des abschließenden Urteils der Katholischen Kirche veröffentlicht. Texte der Monatsbotschaften: Medjugorje Deutschland e.V. · © Medjugorje Reisen, Reiner Wettcke</div>
+</footer>
+</body>
+</html>
