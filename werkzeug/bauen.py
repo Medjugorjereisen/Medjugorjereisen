@@ -387,6 +387,44 @@ def textseiten():
             seite(f"{datei}.html", titel, beschr, f.read(), aktiv=aktiv)
 
 
+ALTE_ADRESSEN = {
+    "home": "index.html", "medjugorje": "medjugorje.html",
+    "medjugorje/das-geschehen": "medjugorje.html#anfang",
+    "medjugorje/medjugorje-die-geschichte": "medjugorje.html#geschichte",
+    "medjugorje/medjugorje-botschaften": "botschaften.html",
+    "botschaften": "botschaften.html", "kontakt": "anfrage.html",
+    "kontakt/anfrage": "anfrage.html", "kontakt/impressum": "impressum.html",
+    "kontakt/datenschutzerklaerung": "datenschutz.html", "ueber-uns": "ueber-mich.html",
+    "2853-2": "index.html#kinder-mariens",
+}
+
+
+def weiterleitungen():
+    """Kleine Seiten unter den alten WordPress-Adressen, die auf die neuen Seiten weiterleiten."""
+    for alt, neu in ALTE_ADRESSEN.items():
+        ziel = "/" + neu
+        ordner = os.path.join(ROOT, alt)
+        os.makedirs(ordner, exist_ok=True)
+        with open(os.path.join(ordner, "index.html"), "w", encoding="utf-8") as f:
+            f.write(f'''<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><title>Weiterleitung – Medjugorje Reisen</title>
+<meta name="robots" content="noindex"><link rel="canonical" href="https://medjugorjereisen.de{ziel}">
+<meta http-equiv="refresh" content="0; url={ziel}"></head>
+<body><p>Diese Seite ist umgezogen: <a href="{ziel}">weiter zur neuen Seite</a>.</p></body></html>
+''')
+
+
+def sitemap(botschaften):
+    jahre = sorted({m["year"] for m in botschaften}, reverse=True)
+    seiten = ["", "anfrage.html", "medjugorje.html", "botschaften.html", "ueber-mich.html",
+              "impressum.html", "datenschutz.html"] + [f"botschaften/{j}.html" for j in jahre]
+    urls = "".join(f"<url><loc>https://medjugorjereisen.de/{s}</loc></url>" for s in seiten)
+    with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
+        f.write(f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>\n')
+    with open(os.path.join(ROOT, "robots.txt"), "w", encoding="utf-8") as f:
+        f.write("User-agent: *\nAllow: /\nSitemap: https://medjugorjereisen.de/sitemap.xml\n")
+
+
 if __name__ == "__main__":
     b = lade("botschaften.json")
     b.sort(key=lambda x: x["iso"], reverse=True)
@@ -396,4 +434,6 @@ if __name__ == "__main__":
     botschaften_seiten(b)
     medjugorje(b)
     textseiten()
+    weiterleitungen()
+    sitemap(b)
     print("Fertig:", len(b), "Botschaften,", len(r["termine"]), "Reisetermine")
