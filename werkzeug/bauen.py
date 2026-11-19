@@ -11,7 +11,6 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 E = html.escape
 
 KONTAKT = {
-    "tel": "07083 933 0898", "tel_link": "+4970839330898",
     "mobil": "0152 33 88 99 60", "mobil_link": "+4915233889960",
     "mail": "maria@medjugorjereisen.de",
     "mail_gruppe": "post@medjugorjereisen.de",
@@ -62,7 +61,7 @@ def seite(pfad, titel, beschreibung, inhalt, aktiv="", tiefe=0):
 <footer class="site-footer">
   <div class="wrap spalten">
     <div><span class="fname">Medjugorje Reisen</span><span>Reiner Wettcke</span><span>Höhenstraße 25</span><span>75335 Dobel</span></div>
-    <div><strong>Kontakt</strong><span>Telefon <a href="tel:{KONTAKT['tel_link']}">{KONTAKT['tel']}</a></span><span>Mobil <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a></span><a href="mailto:{KONTAKT['mail']}">{KONTAKT['mail']}</a></div>
+    <div><strong>Kontakt</strong><span>Telefon <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a></span><a href="mailto:{KONTAKT['mail']}">{KONTAKT['mail']}</a></div>
     <nav aria-label="Weitere Seiten" style="display:flex;flex-direction:column;gap:6px"><strong>Wichtige Seiten</strong><a href="{pre}anfrage.html">Reise anfragen</a><a href="{pre}botschaften.html">Botschaften-Archiv</a><a href="{pre}impressum.html">Impressum</a><a href="{pre}datenschutz.html">Datenschutz</a></nav>
   </div>
   <div class="wrap unten">Alle Botschaften werden unter dem Vorbehalt des abschließenden Urteils der Katholischen Kirche veröffentlicht. Texte der Monatsbotschaften: Medjugorje Deutschland e.V. · © Medjugorje Reisen, Reiner Wettcke</div>
@@ -232,8 +231,7 @@ def anfrage(reisen):
     <p style="color:#3A404C">Füllen Sie das Formular aus. Ich melde mich innerhalb von zwei Tagen persönlich bei Ihnen. Die Anfrage ist unverbindlich und kostenlos.</p>
     <div class="card kontakt-box">
       <strong style="font-size:19px;color:#1E2430">Lieber telefonisch?</strong>
-      <span>Mobil <a href="tel:{KONTAKT['mobil_link']}" style="font-weight:600">{KONTAKT['mobil']}</a></span>
-      <span>Telefon <a href="tel:{KONTAKT['tel_link']}" style="font-weight:600">{KONTAKT['tel']}</a></span>
+      <span>Telefon <a href="tel:{KONTAKT['mobil_link']}" style="font-weight:600">{KONTAKT['mobil']}</a></span>
       <span>E-Mail <a href="mailto:{KONTAKT['mail']}" style="font-weight:600">{KONTAKT['mail']}</a></span>
     </div>
   </aside>
