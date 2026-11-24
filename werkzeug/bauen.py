@@ -290,7 +290,7 @@ def anfrage(reisen):
 <div class="wrap textseite">
   <p class="eyebrow">Anfrage gesendet</p>
   <h1>Vielen Dank für Ihre Anfrage!</h1>
-  <p>Ich melde mich innerhalb von zwei Tagen persönlich bei Ihnen. Eine Bestätigung haben Sie per E-Mail erhalten.</p>
+  <p>Ich melde mich innerhalb von zwei Tagen persönlich bei Ihnen.</p>
   <p>Wenn es eilt, erreichen Sie mich auch telefonisch unter <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a>.</p>
   <p style="margin-top:28px"><a class="btn" href="index.html">Zurück zur Startseite</a></p>
 </div>
