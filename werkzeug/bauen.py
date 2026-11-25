@@ -442,8 +442,8 @@ def reiseseite():
           <label class="check"><input type="checkbox" id="opt-ez" name="Einzelzimmer (+105 € p. P.)" value="Ja"> <span>Einzelzimmer: + 105 € pro Person</span></label>
           <label class="check"><input type="checkbox" id="opt-rv" name="Reiserücktritts- und Abbruchversicherung (+30 € p. P.)" value="Ja"> <span>Reiserücktritts- und Abbruchversicherung: + 30 € pro Person (ohne Krankenschutz)</span></label>
         </fieldset>
-        <div class="summe" aria-live="polite"><span>Ihr voraussichtlicher Reisepreis</span><strong id="summe">675 €</strong><span class="muted" id="summe-info">1 Person, Doppelzimmer mit Frühstück</span></div>
-        <input type="hidden" name="Voraussichtlicher Gesamtpreis" id="summe-feld" value="675 €">
+        <div class="summe" aria-live="polite"><span>Ihr voraussichtlicher Reisepreis</span><strong id="summe">695 €</strong><span class="muted" id="summe-info">1 Person, Doppelzimmer mit Frühstück</span></div>
+        <input type="hidden" name="Voraussichtlicher Gesamtpreis" id="summe-feld" value="695 €">
         <div class="feld"><label for="namen">Vor- und Nachname aller Reisenden *</label><textarea id="namen" name="Reisende" rows="2" required placeholder="z. B. Maria Muster, Josef Muster"></textarea></div>
         <div class="zwei">
           <div class="feld"><label for="strasse">Straße und Hausnummer *</label><input id="strasse" name="Straße" type="text" autocomplete="street-address" required></div>
@@ -466,7 +466,7 @@ def reiseseite():
   var w=document.getElementById('weiter'); if(w && location.protocol.indexOf('http')===0){{ w.value=new URL('danke-anmeldung.html', location.href).href; }}
   var ids=['personen','opt-hp','opt-ez','opt-rv'];
   function rechne(){{
-    var n=Math.max(1,parseInt(document.getElementById('personen').value,10)||1), pp=675, teile=[];
+    var n=Math.max(1,parseInt(document.getElementById('personen').value,10)||1), pp=695, teile=[];
     if(document.getElementById('opt-hp').checked){{pp+=56;teile.push('Halbpension');}}
     if(document.getElementById('opt-ez').checked){{pp+=105;teile.push('Einzelzimmer');}} else teile.unshift('Doppelzimmer');
     if(document.getElementById('opt-rv').checked){{pp+=30;teile.push('Reiserücktrittsversicherung');}}
@@ -480,7 +480,7 @@ def reiseseite():
 </script>
 '''
     seite(r["seite"], "Pilgerreise Medjugorje 8.–15. Mai 2027 – Medjugorje Reisen",
-          "Pilgerreise nach Medjugorje vom 8. bis 15. Mai 2027: Direktflug Stuttgart–Mostar, Villa Niko mit Frühstück, persönlich begleitet. Ab 675 € pro Person.",
+          "Pilgerreise nach Medjugorje vom 8. bis 15. Mai 2027: Direktflug Stuttgart–Mostar, Villa Niko mit Frühstück, persönlich begleitet. Ab 695 € pro Person.",
           inhalt, aktiv="reisen")
     danke = f'''
 <div class="wrap textseite">
