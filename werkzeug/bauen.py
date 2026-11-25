@@ -114,7 +114,7 @@ def startseite(botschaften, reisen):
   <div class="reise-inhalt">
     <h3>{E(r["titel"])}</h3>
     <ul>{punkte}</ul>
-    <div class="reise-fuss">{preis}<a class="btn btn-klein" href="anfrage.html?reise={E(r["id"])}">{E(r.get("knopf", "Anfragen"))}</a></div>
+    <div class="reise-fuss">{preis}<a class="btn btn-klein" href="{E(r.get("seite") or "anfrage.html?reise=" + r["id"])}">{E(r.get("knopf", "Anfragen"))}</a></div>
   </div>
 </article>''')
     karten.append('''<article class="partner">
@@ -375,6 +375,108 @@ def medjugorje(botschaften):
           vorlage.replace("{{NEUESTE_BOTSCHAFTEN}}", neueste), aktiv="medjugorje")
 
 
+# ---------------- Reiseseite ----------------
+def reiseseite():
+    r = lade("reise-2027.json")
+    leist = "".join(f"<li>{E(x)}</li>" for x in r["leistungen"])
+    tage = "".join(f'''<li class="tag"><div class="tag-kopf"><span class="tag-datum">{E(t["tag"])}</span><h3>{E(t["titel"])}</h3></div><ul>{"".join(f"<li>{E(x)}</li>" for x in t["punkte"])}</ul></li>''' for t in r["tage"])
+    inhalt = f'''
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-text">
+      <p class="eyebrow hell">Pilgerreise {E(r["kurzdatum"])}</p>
+      <h1>{E(r["titel"])}</h1>
+      <p class="hero-lead">{E(r["einleitung"])}</p>
+      <div class="hero-actions"><a class="btn btn-gold" href="#anmeldung">Jetzt anmelden</a><a class="btn btn-ghost" href="#programm">Zum Programm</a></div>
+      <p class="hero-call">Fragen? Rufen Sie mich an: <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a></p>
+    </div>
+    <img class="hero-img" src="bilder/galerie/0861.jpg" alt="Unsere Pilgergruppe vor der Kirche St. Jakob in Medjugorje" width="1200" height="900">
+  </div>
+</section>
+
+<section class="wrap section" style="padding-bottom:40px">
+  <div class="reise-fakten">
+    <div class="card fakt"><span class="fakt-titel">Reisezeit</span><strong>{E(r["zeitraum"])}</strong></div>
+    <div class="card fakt"><span class="fakt-titel">Preis pro Person</span><strong>{E(r["preis_dz"])} im Doppelzimmer</strong><span>{E(r["preis_ez"])} im Einzelzimmer</span></div>
+    <div class="card fakt"><span class="fakt-titel">Flüge</span><span>{E(r["flug"]["hin"])}</span><span>{E(r["flug"]["rueck"])}</span></div>
+  </div>
+</section>
+
+<section class="wrap section stack" style="gap:24px;padding-top:40px">
+  <h2 class="section-title">Im Reisepreis enthalten</h2>
+  <ul class="haken">{leist}</ul>
+  <p class="muted">{E(r["privat"])}</p>
+</section>
+
+<section class="band-weiss" id="programm">
+  <div class="wrap section stack" style="gap:28px">
+    <div class="stack" style="gap:10px;max-width:780px"><p class="eyebrow">Programm</p><h2 class="section-title">Unsere Woche in Medjugorje</h2><p class="muted">{E(r["tagesrhythmus"])}</p></div>
+    <ol class="tage">{tage}</ol>
+    <p class="muted" style="font-size:16px">{E(r["hinweis_programm"])}</p>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="form-layout" style="padding:0" id="anmeldung">
+    <aside>
+      <p class="eyebrow">Anmeldung</p>
+      <h2 class="section-title">Jetzt einen Platz sichern</h2>
+      <p style="color:#3A404C">Die Gruppe ist auf 15 Pilger begrenzt. Bitte melden Sie sich möglichst bald an, denn der Flugpreis kann von einem Tag auf den anderen steigen. Nach Ihrer Anmeldung melde ich mich persönlich bei Ihnen und sende Ihnen alle Unterlagen und die Zahlungsinformationen.</p>
+      <div class="card kontakt-box"><strong style="font-size:19px;color:#1E2430">Lieber persönlich?</strong>
+        <span>Telefon <a href="tel:{KONTAKT['mobil_link']}" style="font-weight:600">{KONTAKT['mobil']}</a></span>
+        <span>E-Mail <a href="mailto:{KONTAKT['mail']}" style="font-weight:600">{KONTAKT['mail']}</a></span></div>
+      <p class="muted" style="font-size:16px">Sie möchten jemandem die Reise ermöglichen, der sie sich nicht leisten kann? Eine freiwillige Spende zusätzlich zum Reisepreis ist herzlich willkommen. Was nicht gebraucht wird, geht an die Antoniushilfe e.V.</p>
+    </aside>
+    <section class="card form-karte" aria-label="Anmeldeformular">
+      <form class="form-stack" action="https://formsubmit.co/{KONTAKT['mail']}" method="POST">
+        <input type="hidden" name="_subject" value="Neue Anmeldung: Pilgerreise Medjugorje 8.–15. Mai 2027">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="Reise" value="Medjugorje – Neue Wege auf alten Pfaden, 8.–15. Mai 2027">
+        <input type="hidden" name="_next" id="weiter" value="https://medjugorjereisen.de/danke-anmeldung.html">
+        <input class="honig" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="zwei">
+          <div class="feld"><label for="personen">Anzahl Personen</label><input id="personen" name="Personen" type="number" min="1" max="15" value="1" required></div>
+          <fieldset><legend>Zimmer</legend><div class="radios">
+            <label><input type="radio" name="Zimmer" value="Doppelzimmer" checked> Doppelzimmer</label>
+            <label><input type="radio" name="Zimmer" value="Einzelzimmer"> Einzelzimmer</label></div></fieldset>
+        </div>
+        <div class="feld"><label for="namen">Vor- und Nachname aller Reisenden *</label><textarea id="namen" name="Reisende" rows="2" required placeholder="z. B. Maria Muster, Josef Muster"></textarea></div>
+        <div class="zwei">
+          <div class="feld"><label for="strasse">Straße und Hausnummer *</label><input id="strasse" name="Straße" type="text" autocomplete="street-address" required></div>
+          <div class="feld"><label for="ort">PLZ und Wohnort *</label><input id="ort" name="PLZ Ort" type="text" autocomplete="postal-code" required></div>
+        </div>
+        <div class="zwei">
+          <div class="feld"><label for="tel">Telefon oder Handy *</label><input id="tel" name="Telefon" type="tel" autocomplete="tel" required></div>
+          <div class="feld"><label for="mail">E-Mail *</label><input id="mail" name="email" type="email" autocomplete="email" required></div>
+        </div>
+        <label class="check"><input type="checkbox" name="Reiserücktritts- und Abbruchversicherung (30 € p. P.)" value="Ja"> <span>Ich möchte eine Reiserücktritts- und Abbruchversicherung für 30 € pro Person dazubuchen (ohne Krankenschutz).</span></label>
+        <div class="feld"><label for="msg">Zimmerwünsche, Fragen oder Anmerkungen</label><textarea id="msg" name="Nachricht" rows="4" placeholder="Allein Reisende im Doppelzimmer teilen wir passend ein."></textarea></div>
+        <label class="check"><input type="checkbox" name="Datenschutz" value="zugestimmt" required> <span>Ich habe die <a href="datenschutz.html">Datenschutzerklärung</a> gelesen und bin einverstanden, dass meine Angaben zur Organisation der Reise übermittelt und gespeichert werden. *</span></label>
+        <button class="btn" type="submit" style="align-self:flex-start;font-size:19px;min-height:56px;padding:15px 32px">Verbindlich anmelden</button>
+        <p class="muted" style="font-size:15px">* Pflichtfelder. Ihre Anmeldung wird erst gültig, wenn ich sie Ihnen persönlich bestätigt habe.</p>
+      </form>
+    </section>
+  </div>
+</section>
+<script>
+(function(){{ var w=document.getElementById('weiter'); if(w && location.protocol.indexOf('http')===0){{ w.value=new URL('danke-anmeldung.html', location.href).href; }} }})();
+</script>
+'''
+    seite(r["seite"], "Pilgerreise Medjugorje 8.–15. Mai 2027 – Medjugorje Reisen",
+          "Pilgerreise nach Medjugorje vom 8. bis 15. Mai 2027: Direktflug Stuttgart–Mostar, Villa Niko mit Halbpension, persönlich begleitet. Ab 729 € pro Person.",
+          inhalt, aktiv="reisen")
+    danke = f'''
+<div class="wrap textseite">
+  <p class="eyebrow">Anmeldung gesendet</p>
+  <h1>Vielen Dank für Ihre Anmeldung!</h1>
+  <p>Ich melde mich in den nächsten Tagen persönlich bei Ihnen, bestätige Ihren Platz und sende Ihnen alle Unterlagen.</p>
+  <p>Bei Fragen erreichen Sie mich unter <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a>.</p>
+  <p style="margin-top:28px"><a class="btn" href="index.html">Zurück zur Startseite</a></p>
+</div>
+'''
+    seite("danke-anmeldung.html", "Vielen Dank – Medjugorje Reisen", "Ihre Anmeldung ist eingegangen.", danke)
+
+
 # ---------------- Bildergalerie ----------------
 def galerie():
     """Erzeugt impressionen.html aus daten/galerie.json (Bilder in bilder/galerie/NNNN.jpg und NNNN-klein.jpg)."""
@@ -472,7 +574,7 @@ def weiterleitungen():
 
 def sitemap(botschaften):
     jahre = sorted({m["year"] for m in botschaften}, reverse=True)
-    seiten = ["", "anfrage.html", "medjugorje.html", "impressionen.html", "botschaften.html", "ueber-mich.html",
+    seiten = ["", "anfrage.html", "reise-mai-2027.html", "medjugorje.html", "impressionen.html", "botschaften.html", "ueber-mich.html",
               "impressum.html", "datenschutz.html"] + [f"botschaften/{j}.html" for j in jahre]
     urls = "".join(f"<url><loc>https://medjugorjereisen.de/{s}</loc></url>" for s in seiten)
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
@@ -490,6 +592,7 @@ if __name__ == "__main__":
     botschaften_seiten(b)
     medjugorje(b)
     galerie()
+    reiseseite()
     textseiten()
     weiterleitungen()
     sitemap(b)

@@ -1,19 +1,20 @@
 {
-  "hinweis": "Alle Preise pro Person. Ich buche alles für Sie und melde mich innerhalb von zwei Tagen.",
+  "hinweis": "Alle Preise pro Person. Ich kümmere mich um Flug, Unterkunft und Programm und melde mich nach Ihrer Anmeldung persönlich bei Ihnen.",
   "termine": [
     {
-      "id": "2027",
-      "datum": "Termine 2027",
-      "badge": "in Vorbereitung",
-      "titel": "Flugreisen ab Stuttgart nach Mostar",
+      "id": "2027-05",
+      "datum": "8.–15. Mai 2027",
+      "badge": "Anmeldung offen",
+      "titel": "„Neue Wege auf alten Pfaden“ – Flugreise ab Stuttgart",
       "punkte": [
-        "Kleine Gruppe, persönlich begleitet",
-        "Ruhige, deutschsprachige Pension in Medjugorje",
-        "Nur ca. 30 Minuten Transfer von Mostar"
+        "Direktflug Stuttgart – Mostar, Koffer inklusive",
+        "7 Nächte in der Villa Niko mit Halbpension",
+        "Kleine Gruppe, höchstens 15 Pilger, persönlich begleitet"
       ],
-      "preis": "",
-      "preis_info": "Termine und Preise folgen in Kürze",
-      "knopf": "Vormerken lassen",
+      "preis": "729 €",
+      "preis_info": "pro Person im Doppelzimmer",
+      "knopf": "Programm & Anmeldung",
+      "seite": "reise-mai-2027.html",
       "bild": "blick-tal.jpg",
       "bild_alt": "Blick vom Kreuzberg über das Tal von Medjugorje"
     }
