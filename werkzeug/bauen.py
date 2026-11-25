@@ -26,6 +26,7 @@ LOGO = ('<svg width="34" height="34" viewBox="0 0 34 34" fill="none" stroke="#B8
 NAV = [("index.html#reisen", "Reisen", "reisen"),
        ("botschaften.html", "Botschaften", "botschaften"),
        ("medjugorje.html", "Medjugorje", "medjugorje"),
+       ("impressionen.html", "Bilder", "bilder"),
        ("index.html#kinder-mariens", "Kinder Mariens", "kinder"),
        ("ueber-mich.html", "Über mich", "ueber")]
 
@@ -187,7 +188,7 @@ def startseite(botschaften, reisen):
     <figure class="ort"><img src="bilder/erscheinungsberg.jpg" alt="Pilger auf dem steinigen Weg des Erscheinungsbergs" loading="lazy"><figcaption><span class="titel">Erscheinungsberg (Podbrdo)</span><span class="text">Hier begannen 1981 die Erscheinungen</span></figcaption></figure>
     <figure class="ort"><img src="bilder/platz-neu.jpg" alt="Pilger auf dem Platz am Außenaltar hinter der Kirche St. Jakob bei Sonnenuntergang" style="object-position:62% 50%" loading="lazy"><figcaption><span class="titel">Abendprogramm am Außenaltar</span><span class="text">Rosenkranz, Heilige Messe und Anbetung</span></figcaption></figure>
   </div>
-  <p><a href="medjugorje.html" style="font-weight:600">Mehr über Medjugorje, die Geschichte und die Botschaften</a></p>
+  <p style="display:flex;flex-wrap:wrap;gap:8px 28px"><a href="medjugorje.html" style="font-weight:600">Mehr über Medjugorje, die Geschichte und die Botschaften</a><a href="impressionen.html" style="font-weight:600">Alle Bilder unserer Pilgerreisen ansehen</a></p>
 </section>
 
 <section class="wrap section" id="ueber">
@@ -374,6 +375,63 @@ def medjugorje(botschaften):
           vorlage.replace("{{NEUESTE_BOTSCHAFTEN}}", neueste), aktiv="medjugorje")
 
 
+# ---------------- Bildergalerie ----------------
+def galerie():
+    """Erzeugt impressionen.html aus daten/galerie.json (Bilder in bilder/galerie/NNNN.jpg und NNNN-klein.jpg)."""
+    from PIL import Image
+    g = lade("galerie.json")
+    teile, nav = [], []
+    for k, gr in enumerate(g["gruppen"]):
+        anker = f"g{k + 1}"
+        nav.append(f'<a href="#{anker}">{E(gr["titel"])}</a>')
+        kacheln = []
+        for nr, text in gr["bilder"]:
+            name = f"{nr:04d}"
+            w, h = Image.open(os.path.join(ROOT, "bilder", "galerie", name + "-klein.jpg")).size
+            kacheln.append(f'<a class="g-bild" href="bilder/galerie/{name}.jpg" data-text="{E(text)}">'
+                           f'<img src="bilder/galerie/{name}-klein.jpg" alt="{E(text)}" width="{w}" height="{h}" loading="lazy"></a>')
+        teile.append(f'''<section class="g-gruppe" id="{anker}">
+  <div class="stack" style="gap:8px;max-width:760px"><h2 class="section-title" style="font-size:32px">{E(gr["titel"])}</h2><p class="muted">{E(gr["text"])}</p></div>
+  <div class="g-raster">{"".join(kacheln)}</div>
+</section>''')
+    inhalt = f'''
+<section class="wrap section stack" style="gap:28px;padding-bottom:24px">
+  <div class="stack" style="gap:10px;max-width:780px"><p class="eyebrow">Impressionen</p><h1 class="section-title" style="font-size:44px">Bilder unserer Pilgerreisen</h1><p class="muted" style="font-size:19px">{E(g["einleitung"])}</p></div>
+  <nav class="g-nav" aria-label="Bereiche der Galerie">{"".join(nav)}</nav>
+</section>
+<div class="wrap stack" style="gap:72px;padding-bottom:96px">
+{chr(10).join(teile)}
+  <div class="banner" style="margin-top:8px"><div class="text"><h2>Möchten Sie das selbst erleben?</h2><p>Ich begleite Sie persönlich nach Medjugorje, in einer kleinen Gruppe und mit viel Zeit für Gebet und Stille.</p></div><a class="btn btn-gold" href="anfrage.html">Reise unverbindlich anfragen</a></div>
+</div>
+<div class="g-lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Bildansicht">
+  <button class="g-zu" type="button" aria-label="Schließen">×</button>
+  <button class="g-pfeil g-zurueck" type="button" aria-label="Vorheriges Bild">‹</button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="g-pfeil g-vor" type="button" aria-label="Nächstes Bild">›</button>
+</div>
+<script>
+(function(){{
+  var links=[].slice.call(document.querySelectorAll('.g-bild')), box=document.getElementById('lightbox'),
+      img=box.querySelector('img'), cap=box.querySelector('figcaption'), i=0, zuletzt=null;
+  function zeige(n){{ i=(n+links.length)%links.length; var a=links[i]; img.src=a.href; img.alt=a.dataset.text; cap.textContent=a.dataset.text; }}
+  function auf(n){{ zuletzt=document.activeElement; zeige(n); box.hidden=false; document.body.style.overflow='hidden'; box.querySelector('.g-zu').focus(); }}
+  function zu(){{ box.hidden=true; img.src=''; document.body.style.overflow=''; if(zuletzt) zuletzt.focus(); }}
+  links.forEach(function(a,n){{ a.addEventListener('click',function(e){{ e.preventDefault(); auf(n); }}); }});
+  box.querySelector('.g-zu').onclick=zu;
+  box.querySelector('.g-vor').onclick=function(){{ zeige(i+1); }};
+  box.querySelector('.g-zurueck').onclick=function(){{ zeige(i-1); }};
+  box.addEventListener('click',function(e){{ if(e.target===box) zu(); }});
+  document.addEventListener('keydown',function(e){{ if(box.hidden) return; if(e.key==='Escape') zu(); if(e.key==='ArrowRight') zeige(i+1); if(e.key==='ArrowLeft') zeige(i-1); }});
+  var x0=null; box.addEventListener('touchstart',function(e){{ x0=e.touches[0].clientX; }},{{passive:true}});
+  box.addEventListener('touchend',function(e){{ if(x0===null) return; var d=e.changedTouches[0].clientX-x0; if(Math.abs(d)>40) zeige(i+(d<0?1:-1)); x0=null; }});
+}})();
+</script>
+'''
+    seite("impressionen.html", "Bilder unserer Pilgerreisen – Medjugorje Reisen",
+          "Impressionen aus Medjugorje: St. Jakob, Erscheinungsberg, Kreuzberg, Abendgebet und Gemeinschaft auf unseren Pilgerreisen.",
+          inhalt, aktiv="bilder")
+
+
 def textseiten():
     for datei, titel, beschr, aktiv in [
         ("ueber-mich", "Über mich – Reiner Wettcke – Medjugorje Reisen", "Reiner Wettcke über seinen Weg nach Medjugorje.", "ueber"),
@@ -414,7 +472,7 @@ def weiterleitungen():
 
 def sitemap(botschaften):
     jahre = sorted({m["year"] for m in botschaften}, reverse=True)
-    seiten = ["", "anfrage.html", "medjugorje.html", "botschaften.html", "ueber-mich.html",
+    seiten = ["", "anfrage.html", "medjugorje.html", "impressionen.html", "botschaften.html", "ueber-mich.html",
               "impressum.html", "datenschutz.html"] + [f"botschaften/{j}.html" for j in jahre]
     urls = "".join(f"<url><loc>https://medjugorjereisen.de/{s}</loc></url>" for s in seiten)
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8") as f:
@@ -431,6 +489,7 @@ if __name__ == "__main__":
     anfrage(r)
     botschaften_seiten(b)
     medjugorje(b)
+    galerie()
     textseiten()
     weiterleitungen()
     sitemap(b)
