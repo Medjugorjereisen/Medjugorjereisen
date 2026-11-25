@@ -5,57 +5,116 @@
  "zeitraum": "Samstag, 8. Mai bis Samstag, 15. Mai 2027",
  "kurzdatum": "8.–15. Mai 2027",
  "einleitung": "Eine Woche in Medjugorje, in einer kleinen Gruppe von höchstens 15 Pilgern und persönlich begleitet. Die Reise richtet sich besonders an alle, die Medjugorje noch nicht kennen: an Suchende, an Menschen mit Fragen an das Leben und an alle, die Gott besser kennenlernen oder wiederfinden möchten. Aber auch wer schon dort war, ist herzlich willkommen.",
- "preis_dz": "729 €", "preis_ez": "834 €",
- "flug": {"hin": "Sa 8. Mai: Stuttgart 06:55 Uhr → Mostar 08:35 Uhr (Eurowings EW 2946)",
-          "rueck": "Sa 15. Mai: Mostar 09:15 Uhr → Stuttgart 10:55 Uhr (Eurowings EW 2947)"},
+ "preis_dz": "675 €",
+ "flug": {
+  "hin": "Sa 8. Mai: Stuttgart 06:55 Uhr → Mostar 08:35 Uhr (Eurowings EW 2946)",
+  "rueck": "Sa 15. Mai: Mostar 09:15 Uhr → Stuttgart 10:55 Uhr (Eurowings EW 2947)"
+ },
  "leistungen": [
   "Hin- und Rückflug Stuttgart – Mostar mit Eurowings, inklusive Koffer bis 23 kg und Handgepäck",
   "Bustransfer Flughafen Mostar – Medjugorje und zurück",
-  "7 Übernachtungen in der Villa Niko bei Familie Čilić, mit Halbpension",
+  "7 Übernachtungen mit Frühstück im Doppelzimmer in der Villa Niko bei Familie Čilić",
   "Zimmer mit Dusche, WC, Balkon und Klimaanlage, kostenloses WLAN",
   "Gemeinsames Programm: Erscheinungsberg, Kreuzweg auf den Kreuzberg, Besuch der Gemeinschaft Cenacolo",
   "Ausflug in die Altstadt von Mostar",
   "Persönliche Begleitung durch Reiner Wettcke, der Medjugorje seit 1985 kennt"
  ],
  "tage": [
-  {"tag": "Samstag, 8. Mai", "titel": "Anreise", "punkte": [
+  {
+   "tag": "Samstag, 8. Mai",
+   "titel": "Anreise",
+   "punkte": [
     "06:55 Abflug in Stuttgart, 08:35 Landung in Mostar",
     "Transfer nach Medjugorje und Ankunft in der Villa Niko bei Familie Čilić",
     "Ankommen, Zimmer beziehen, erster Gang zur Kirche St. Jakob",
-    "17:00 Rosenkranz und 18:00 Heilige Messe in St. Jakob"]},
-  {"tag": "Sonntag, 9. Mai", "titel": "Ankommen im Gebet", "punkte": [
+    "17:00 Rosenkranz und 18:00 Heilige Messe in St. Jakob"
+   ]
+  },
+  {
+   "tag": "Sonntag, 9. Mai",
+   "titel": "Ankommen im Gebet",
+   "punkte": [
     "09:00 Heilige Messe auf Deutsch in St. Jakob",
     "10:30 Kennenlernrunde in der Pension",
     "Nachmittag zur freien Verfügung",
-    "Abendprogramm mit Rosenkranz, Heiliger Messe und Segnung der religiösen Gegenstände"]},
-  {"tag": "Montag, 10. Mai", "titel": "Erscheinungsberg", "punkte": [
+    "Abendprogramm mit Rosenkranz, Heiliger Messe und Segnung der religiösen Gegenstände"
+   ]
+  },
+  {
+   "tag": "Montag, 10. Mai",
+   "titel": "Erscheinungsberg",
+   "punkte": [
     "09:00 Heilige Messe auf Deutsch",
     "10:00 Unter Gebet und Betrachtung gehen wir auf den Erscheinungsberg Podbrdo, zur Stätte der ersten Erscheinungen",
     "Nachmittag: Ruhe, Gebet, Gelegenheit zur Beichte",
-    "Abendprogramm mit Gebet für seelische und körperliche Gesundheit"]},
-  {"tag": "Dienstag, 11. Mai", "titel": "Begegnung", "punkte": [
+    "Abendprogramm mit Gebet für seelische und körperliche Gesundheit"
+   ]
+  },
+  {
+   "tag": "Dienstag, 11. Mai",
+   "titel": "Begegnung",
+   "punkte": [
     "09:00 Heilige Messe auf Deutsch",
     "10:00 Treffen mit Vikica Dodig, Übersetzerin, langjährige Mitarbeiterin von Pater Slavko Barbarić und Cousine der Seherin Vicka",
     "Nachmittag: Ruhe, Gebet, Gelegenheit zur Beichte",
-    "Abendprogramm mit Eucharistischer Anbetung"]},
-  {"tag": "Mittwoch, 12. Mai", "titel": "Ausflug nach Mostar", "punkte": [
+    "Abendprogramm mit Eucharistischer Anbetung"
+   ]
+  },
+  {
+   "tag": "Mittwoch, 12. Mai",
+   "titel": "Ausflug nach Mostar",
+   "punkte": [
     "09:00 Heilige Messe auf Deutsch",
     "10:00 Ausflug in die Altstadt von Mostar mit der berühmten Alten Brücke, Mittagessen in Mostar",
-    "Abendprogramm in St. Jakob"]},
-  {"tag": "Donnerstag, 13. Mai", "titel": "Kreuzberg", "punkte": [
+    "Abendprogramm in St. Jakob"
+   ]
+  },
+  {
+   "tag": "Donnerstag, 13. Mai",
+   "titel": "Kreuzberg",
+   "punkte": [
     "09:00 Gemeinsamer Kreuzweg auf den Kreuzberg Križevac",
     "Nachmittag: Ruhe, Gebet, Gelegenheit zur Beichte",
-    "Abendprogramm mit Eucharistischer Anbetung"]},
-  {"tag": "Freitag, 14. Mai", "titel": "Cenacolo", "punkte": [
+    "Abendprogramm mit Eucharistischer Anbetung"
+   ]
+  },
+  {
+   "tag": "Freitag, 14. Mai",
+   "titel": "Cenacolo",
+   "punkte": [
     "09:00 Heilige Messe auf Deutsch",
     "10:00 Besuch der Gemeinschaft Cenacolo, in der junge Menschen aus Sucht und Krise einen neuen Weg finden",
     "Nachmittag zur freien Verfügung",
-    "Abendprogramm mit Kreuzverehrung"]},
-  {"tag": "Samstag, 15. Mai", "titel": "Heimreise", "punkte": [
+    "Abendprogramm mit Kreuzverehrung"
+   ]
+  },
+  {
+   "tag": "Samstag, 15. Mai",
+   "titel": "Heimreise",
+   "punkte": [
     "Frühstück und Transfer zum Flughafen Mostar",
-    "09:15 Abflug, 10:55 Landung in Stuttgart"]}
+    "09:15 Abflug, 10:55 Landung in Stuttgart"
+   ]
+  }
  ],
  "tagesrhythmus": "Jeder Tag beginnt um 07:30 Uhr mit dem gemeinsamen Frühstück und um 08:15 Uhr mit einem kurzen Morgenlob. Um 17:00 Uhr beten wir in St. Jakob den Rosenkranz, um 18:00 Uhr folgt die Heilige Messe. Gegen 20:00 Uhr endet das Tagesprogramm, danach ist Zeit für ein gemütliches Beisammensein.",
  "hinweis_programm": "Einzelne Programmpunkte können sich ändern, da die Abläufe vor Ort mit den Verantwortlichen abgestimmt werden.",
- "privat": "Die Reise wird privat und nicht kommerziell organisiert. Bleibt am Ende Geld übrig, geht es an die Antoniushilfe e.V., die Waisenkinder in Lahore (Pakistan) unterstützt."
+ "privat": "Die Reise wird privat und nicht kommerziell organisiert. Was neben den tatsächlichen Kosten übrig bleibt, geht an die Antoniushilfe e.V. zugunsten der Waisenkinder von Lahore.",
+ "zusatz": [
+  [
+   "Halbpension",
+   "56 €",
+   "pro Person (7 × 8 €)"
+  ],
+  [
+   "Einzelzimmerzuschlag",
+   "105 €",
+   "pro Person (7 × 15 €)"
+  ],
+  [
+   "Reiserücktritts- und Abbruchversicherung",
+   "30 €",
+   "pro Person, ohne Krankenschutz"
+  ]
+ ]
 }

@@ -295,3 +295,12 @@ fieldset{border:0;margin:0;padding:0}
 .tag-datum{font-size:15px;color:var(--gold-text);font-weight:600}
 .tag h3{font-size:24px}
 .tag ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:6px;color:var(--text-2);font-size:17px}
+.zusatz{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;max-width:760px}
+.zusatz li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 16px;padding:14px 18px;background:var(--weiss);border-radius:14px;box-shadow:var(--schatten)}
+.zusatz li strong{white-space:nowrap;color:var(--blau)}
+.zusatz li .muted{grid-column:1/-1;font-size:16px}
+fieldset.optionen{border:1.5px solid var(--linie);border-radius:14px;padding:16px 20px 18px;margin:0;display:flex;flex-direction:column;gap:12px}
+fieldset.optionen legend{padding:0 6px}
+.summe{display:flex;flex-direction:column;gap:2px;background:var(--sand-hell);border-radius:14px;padding:16px 20px}
+.summe strong{font-family:var(--serif);font-size:30px;color:var(--blau-dunkel)}
+.summe .muted{font-size:16px}
