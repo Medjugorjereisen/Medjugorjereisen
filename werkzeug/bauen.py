@@ -390,7 +390,7 @@ def reiseseite():
       <div class="hero-actions"><a class="btn btn-gold" href="#anmeldung">Jetzt anmelden</a><a class="btn btn-ghost" href="#programm">Zum Programm</a></div>
       <p class="hero-call">Fragen? Rufen Sie mich an: <a href="tel:{KONTAKT['mobil_link']}">{KONTAKT['mobil']}</a></p>
     </div>
-    <img class="hero-img" src="bilder/galerie/0861.jpg" alt="Unsere Pilgergruppe vor der Kirche St. Jakob in Medjugorje" width="1200" height="900">
+    <img class="hero-img" src="bilder/pilgergruppe-erscheinungsberg.jpg" alt="Unsere Pilgergruppe in blauen T-Shirts vor der Marienstatue auf dem Erscheinungsberg" width="1600" height="747">
   </div>
 </section>
 
