@@ -11,12 +11,10 @@
   "rueck": "Sa 15. Mai: Mostar 09:15 Uhr → Stuttgart 10:55 Uhr (Eurowings EW 2947)"
  },
  "leistungen": [
-  "Hin- und Rückflug Stuttgart – Mostar mit Eurowings, inklusive Koffer bis 23 kg und Handgepäck",
   "Bustransfer Flughafen Mostar – Medjugorje und zurück",
   "7 Übernachtungen mit Frühstück im Doppelzimmer in der Villa Niko bei Familie Čilić",
   "Zimmer mit Dusche, WC, Balkon und Klimaanlage, kostenloses WLAN",
   "Gemeinsames Programm: Erscheinungsberg, Kreuzweg auf den Kreuzberg, Besuch der Gemeinschaft Cenacolo",
-  "Ausflug in die Altstadt von Mostar",
   "Persönliche Begleitung durch Reiner Wettcke, der Medjugorje seit 1985 kennt"
  ],
  "tage": [
@@ -55,17 +53,17 @@
    "titel": "Begegnung",
    "punkte": [
     "09:00 Heilige Messe auf Deutsch",
-    "10:00 Treffen mit Vikica Dodig, Übersetzerin, langjährige Mitarbeiterin von Pater Slavko Barbarić und Cousine der Seherin Vicka",
+    "10:00 Geplant: Treffen mit Vikica Dodig, Übersetzerin, langjährige Mitarbeiterin von Pater Slavko Barbarić und Cousine der Seherin Vicka (Termin wird noch abgestimmt)",
     "Nachmittag: Ruhe, Gebet, Gelegenheit zur Beichte",
     "Abendprogramm mit Eucharistischer Anbetung"
    ]
   },
   {
    "tag": "Mittwoch, 12. Mai",
-   "titel": "Ausflug nach Mostar",
+   "titel": "Mostar oder Medjugorje",
    "punkte": [
     "09:00 Heilige Messe auf Deutsch",
-    "10:00 Ausflug in die Altstadt von Mostar mit der berühmten Alten Brücke, Mittagessen in Mostar",
+    "10:00 Auf Wunsch Ausflug in die Altstadt von Mostar mit der berühmten Alten Brücke (ca. 30 € Fahrtkosten, die Gruppe entscheidet vor Ort), sonst Zeit zur freien Verfügung in Medjugorje",
     "Abendprogramm in St. Jakob"
    ]
   },
@@ -97,8 +95,8 @@
    ]
   }
  ],
- "tagesrhythmus": "Jeder Tag beginnt um 07:30 Uhr mit dem gemeinsamen Frühstück und um 08:15 Uhr mit einem kurzen Morgenlob. Um 17:00 Uhr beten wir in St. Jakob den Rosenkranz, um 18:00 Uhr folgt die Heilige Messe. Gegen 20:00 Uhr endet das Tagesprogramm, danach ist Zeit für ein gemütliches Beisammensein.",
- "hinweis_programm": "Einzelne Programmpunkte können sich ändern, da die Abläufe vor Ort mit den Verantwortlichen abgestimmt werden.",
+ "tagesrhythmus": "Jeder Tag beginnt um 07:30 Uhr mit dem gemeinsamen Frühstück und um 08:15 Uhr mit einem kurzen Morgenlob. Das gemeinsame Mittagessen für alle mit Halbpension ist gegen 13:00 Uhr. Um 17:00 Uhr beten wir in St. Jakob den Rosenkranz, um 18:00 Uhr folgt die Heilige Messe. Gegen 20:00 Uhr endet das Tagesprogramm, danach ist Zeit für ein gemütliches Beisammensein.",
+ "hinweis_programm": "Einzelne Programmpunkte und die Essenszeiten können sich ändern, da wir sie vor Ort gemeinsam in der Gruppe und mit den Verantwortlichen abstimmen.",
  "privat": "Die Reise wird privat und nicht kommerziell organisiert. Was neben den tatsächlichen Kosten übrig bleibt, geht an die Antoniushilfe e.V. zugunsten der Waisenkinder von Lahore.",
  "zusatz": [
   [
@@ -110,6 +108,11 @@
    "Einzelzimmerzuschlag",
    "105 €",
    "pro Person (7 × 15 €)"
+  ],
+  [
+   "Ausflug in die Altstadt von Mostar",
+   "ca. 30 €",
+   "pro Person Fahrtkosten, wird vor Ort gemeinsam entschieden"
   ],
   [
    "Reiserücktritts- und Abbruchversicherung",
