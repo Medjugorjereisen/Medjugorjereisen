@@ -187,6 +187,9 @@ fieldset{border:0;margin:0;padding:0}
 .check{display:flex;gap:12px;align-items:flex-start;cursor:pointer;font-weight:400 !important;color:var(--text-2)}
 .check input{width:22px;height:22px;margin-top:2px;accent-color:var(--blau);flex-shrink:0}
 .honig{position:absolute;left:-9999px}
+.fehler-box{background:#FCEBEA;border:2px solid #B3261E;color:#7A1A14;border-radius:12px;padding:14px 18px;font-size:18px;line-height:1.45}
+form .fehlt{border-color:#B3261E !important;box-shadow:0 0 0 3px rgba(179,38,30,.15)}
+label.check.fehlt{border:2px solid #B3261E;border-radius:10px;padding:8px 10px;background:#FCEBEA}
 
 /* Medjugorje-Seite */
 .fakten{margin:0;padding:30px 32px;display:flex;flex-direction:column;gap:16px}

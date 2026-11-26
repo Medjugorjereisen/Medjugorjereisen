@@ -31,6 +31,34 @@ NAV = [("index.html#reisen", "Reisen", "reisen"),
        ("ueber-mich.html", "Über mich", "ueber")]
 
 
+
+FORMHILFE = """<script>
+(function(){
+  var NAMEN={'Reisende':'Namen der Reisenden','Name':'Name','Straße':'Straße und Hausnummer','PLZ Ort':'PLZ und Wohnort','Telefon':'Telefon','email':'E-Mail','Personen':'Anzahl Personen','Datenschutz':'Häkchen bei der Datenschutzerklärung'};
+  document.querySelectorAll('form.form-stack').forEach(function(f){
+    f.setAttribute('novalidate','');
+    var knopf=f.querySelector('button[type=submit]');
+    var box=document.createElement('div'); box.className='fehler-box'; box.setAttribute('role','alert'); box.hidden=true;
+    knopf.parentNode.insertBefore(box,knopf);
+    function rahmen(el){ return el.type==='checkbox' ? el.closest('label') : el; }
+    f.addEventListener('submit',function(ev){
+      var fehlt=[], erstes=null;
+      f.querySelectorAll('[required]').forEach(function(el){
+        var ok=el.checkValidity(); rahmen(el).classList.toggle('fehlt',!ok);
+        if(!ok){ var n=NAMEN[el.name]||el.name; if(el.type==='email'&&el.value.trim()) n+=' (bitte vollständige Adresse, z. B. name@web.de)'; fehlt.push(n); if(!erstes) erstes=el; }
+      });
+      if(fehlt.length){
+        ev.preventDefault();
+        box.innerHTML='<strong>Bitte noch ausfüllen:</strong> '+fehlt.join(', ');
+        box.hidden=false; erstes.scrollIntoView({behavior:'smooth',block:'center'}); setTimeout(function(){erstes.focus({preventScroll:true});},400);
+      }
+    });
+    f.addEventListener('input',function(ev){ var el=ev.target; if(el.hasAttribute && el.hasAttribute('required') && el.checkValidity()){ rahmen(el).classList.remove('fehlt'); if(!f.querySelector('.fehlt')) box.hidden=true; } });
+    f.addEventListener('change',function(ev){ f.dispatchEvent(new Event('input')); var el=ev.target; if(el.type==='checkbox'&&el.required&&el.checked){ rahmen(el).classList.remove('fehlt'); if(!f.querySelector('.fehlt')) box.hidden=true; } });
+  });
+})();
+</script>"""
+
 def seite(pfad, titel, beschreibung, inhalt, aktiv="", tiefe=0):
     pre = "../" * tiefe
     nav = []
@@ -283,6 +311,7 @@ def anfrage(reisen):
   if(id){{ var s=document.getElementById('reise'); for(var i=0;i<s.options.length;i++){{ if(s.options[i].getAttribute('data-id')===id){{ s.selectedIndex=i; }} }} }}
 }})();
 </script>
+{FORMHILFE}
 '''
     seite("anfrage.html", "Reise anfragen – Medjugorje Reisen",
           "Unverbindliche Anfrage für eine Pilgerreise nach Medjugorje mit Reiner Wettcke.", inhalt)
@@ -478,6 +507,7 @@ def reiseseite():
   ids.forEach(function(i){{ var e=document.getElementById(i); e.addEventListener('input',rechne); e.addEventListener('change',rechne); }}); rechne();
 }})();
 </script>
+{FORMHILFE}
 '''
     seite(r["seite"], "Pilgerreise Medjugorje 8.–15. Mai 2027 – Medjugorje Reisen",
           "Pilgerreise nach Medjugorje vom 8. bis 15. Mai 2027: Direktflug Stuttgart–Mostar, Villa Niko mit Frühstück, persönlich begleitet. Ab 695 € pro Person.",
