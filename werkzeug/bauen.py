@@ -470,7 +470,7 @@ def reiseseite():
         <input class="honig" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
         <div class="feld"><label for="personen">Anzahl Personen</label><input id="personen" name="Personen" type="number" min="1" max="15" value="1" required></div>
         <fieldset class="optionen"><legend>Zusätzlich buchen (bitte anklicken)</legend>
-          <label class="check"><input type="checkbox" id="opt-hp" name="Halbpension (+56 € p. P.)" value="Ja"> <span>Halbpension: + 56 € pro Person</span></label>
+          <label class="check"><input type="checkbox" id="opt-hp" name="Halbpension 7 Tage (+56 € p. P.)" value="Ja"> <span>Halbpension für 7 Tage: + 56 € pro Person</span></label>
           <label class="check"><input type="checkbox" id="opt-ez" name="Einzelzimmer (+105 € p. P.)" value="Ja"> <span>Einzelzimmer: + 105 € pro Person</span></label>
           <label class="check"><input type="checkbox" id="opt-rv" name="Reiserücktritts- und Abbruchversicherung (+30 € p. P.)" value="Ja"> <span>Reiserücktritts- und Abbruchversicherung: + 30 € pro Person (ohne Krankenschutz)</span></label>
         </fieldset>
