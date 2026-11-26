@@ -59,6 +59,9 @@ FORMHILFE = """<script>
 })();
 </script>"""
 
+import hashlib as _h, pathlib as _p
+CSSV=_h.md5((_p.Path(__file__).resolve().parent.parent/'style.css').read_bytes()).hexdigest()[:8]
+
 def seite(pfad, titel, beschreibung, inhalt, aktiv="", tiefe=0):
     pre = "../" * tiefe
     nav = []
@@ -73,7 +76,7 @@ def seite(pfad, titel, beschreibung, inhalt, aktiv="", tiefe=0):
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{E(titel)}</title>
 <meta name="description" content="{E(beschreibung)}">
-<link rel="stylesheet" href="{pre}style.css">
+<link rel="stylesheet" href="{pre}style.css?v={CSSV}">
 <link rel="icon" href="{pre}bilder/favicon.svg" type="image/svg+xml">
 </head>
 <body>
